@@ -43,9 +43,9 @@ function P5History() {
           {transactions.map((transaction, index) => (
             <tr key={transaction.id}>
               <td>{index + 1}</td>
-              <td>{transaction.dateTime}</td>
+              <td>{(new Date(transaction.timestamp).toDateString())}</td>
               <td>{transaction.points}</td>
-              <td>{transaction.userName}</td>
+              <td>{transaction.toUserName}</td>
               <td><button onClick={() => handleDelete(transaction.id)}>Delete</button></td>
             </tr>
           ))}
