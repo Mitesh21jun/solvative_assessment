@@ -20,7 +20,7 @@ exports.editUser = async (req, res) => {
     res.json(user);
 };
 
-exports.getUserBalance = async (req, res) => {
+exports.getUser = async (req, res) => {
     const { id } = req.params;
     const user = await User.findOne({ id });
 
@@ -28,10 +28,10 @@ exports.getUserBalance = async (req, res) => {
         return res.status(404).json({ error: 'User not found' });
     }
 
-    res.json({ p5Balance: user.p5Balance, rewardsBalance: user.rewardsBalance });
+    res.json(user);
 };
 
 exports.getAllUsers = async (req, res) => {
-    const user = await User.findOne({ id });
+    const user = await User.find({ });
     res.json(user);
 };

@@ -2,12 +2,14 @@ const express = require('express');
 const connectDB = require('./config/db');
 const userRoutes = require('./routes/userRoutes');
 const transactionRoutes = require('./routes/transactionRoutes');
+const cors = require('cors');
 
 const app = express();
 
 connectDB();
 
 app.use(express.json());
+app.use(cors()); 
 
 app.use('/users', userRoutes);
 app.use('/p5', transactionRoutes);
